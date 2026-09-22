@@ -4,6 +4,24 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity Web Player | TL_WebGLTest</title>
+    <script>
+  // EM
+  window.ytgame = window.ytgame || {
+    IN_PLAYABLES_ENV: false,
+    game: {
+      firstFrameReady: function() { console.log("YT SDK: First Frame Ready"); },
+      gameReady: function() { console.log("YT SDK: Game Ready"); },
+      saveData: function(data) { console.log("YT SDK: Save Data", data); return Promise.resolve(); },
+      loadData: function() { console.log("YT SDK: Load Data"); return Promise.resolve("{}"); }
+    },
+    system: {
+      isAudioEnabled: function() { return true; },
+      onAudioEnabledChange: function(cb) {},
+      onPause: function(cb) {},
+      onResume: function(cb) {}
+    }
+  };
+</script>
   </head>
   <body style="text-align: center; padding: 0; border: 0; margin: 0;">
     <canvas id="unity-canvas" width=960 height=600 tabindex="-1" style="width: 960px; height: 600px; background: #231F20"></canvas>
